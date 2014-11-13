@@ -43,10 +43,9 @@ import de.greenrobot.common.hash.Murmur3F;
 @Measurement(iterations = 10, time = 500, timeUnit = TimeUnit.MILLISECONDS)
 public class BenchmarkGreenRobotMurmur3F {
 
-  Murmur3F hf = new Murmur3F();
-
   @Benchmark
   public void greenrobot_murmur3F(Blackhole bh, BenchmarkData bd, ByteCounter bc) {
+    Murmur3F hf = new Murmur3F();
     byte[] bytes = bd.getBytes();
     bc.add(bytes.length);
     hf.update(bytes, 0, bytes.length);

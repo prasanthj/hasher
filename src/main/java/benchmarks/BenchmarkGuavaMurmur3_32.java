@@ -44,13 +44,11 @@ import java.util.concurrent.TimeUnit;
 @Measurement(iterations = 10, time = 500, timeUnit = TimeUnit.MILLISECONDS)
 public class BenchmarkGuavaMurmur3_32 {
 
-  HashFunction hf = Hashing.murmur3_32();
-
   @Benchmark
   public void guava_murmur3_32(Blackhole bh, BenchmarkData bd, ByteCounter bc) {
     byte[] bytes = bd.getBytes();
     bc.add(bytes.length);
-    bh.consume(hf.newHasher().putBytes(bytes).hash().asInt());
+    bh.consume(Hashing.murmur3_32().hashBytes(bytes).asInt());
   }
 
   public static void main(String[] args) throws RunnerException {
