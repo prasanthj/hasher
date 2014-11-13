@@ -26,7 +26,6 @@ import java.nio.ByteOrder;
 import java.util.Random;
 
 import hasher.Murmur3;
-import hasher.Murmur3_128;
 
 /**
  * Tests for Murmur3 variants.
@@ -39,12 +38,12 @@ public class TestMurmur3 {
     int seed = 123;
     HashFunction hf = Hashing.murmur3_32(seed);
     int hc1 = hf.hashBytes(key.getBytes()).asInt();
-    int hc2 = Murmur3.hash(key.getBytes(), key.getBytes().length, seed);
+    int hc2 = Murmur3.hash32(key.getBytes(), key.getBytes().length, seed);
     assertEquals(hc1, hc2);
 
     key = "testkey";
     hc1 = hf.hashBytes(key.getBytes()).asInt();
-    hc2 = Murmur3.hash(key.getBytes(), key.getBytes().length, seed);
+    hc2 = Murmur3.hash32(key.getBytes(), key.getBytes().length, seed);
     assertEquals(hc1, hc2);
   }
 
@@ -57,7 +56,7 @@ public class TestMurmur3 {
       int val = rand.nextInt();
       byte[] data = ByteBuffer.allocate(4).putInt(val).array();
       int hc1 = hf.hashBytes(data).asInt();
-      int hc2 = Murmur3.hash(data, data.length, seed);
+      int hc2 = Murmur3.hash32(data, data.length, seed);
       assertEquals(hc1, hc2);
     }
   }
@@ -71,7 +70,7 @@ public class TestMurmur3 {
       long val = rand.nextLong();
       byte[] data = ByteBuffer.allocate(8).putLong(val).array();
       int hc1 = hf.hashBytes(data).asInt();
-      int hc2 = Murmur3.hash(data, data.length, seed);
+      int hc2 = Murmur3.hash32(data, data.length, seed);
       assertEquals(hc1, hc2);
     }
   }
@@ -85,7 +84,7 @@ public class TestMurmur3 {
       double val = rand.nextDouble();
       byte[] data = ByteBuffer.allocate(8).putDouble(val).array();
       int hc1 = hf.hashBytes(data).asInt();
-      int hc2 = Murmur3.hash(data, data.length, seed);
+      int hc2 = Murmur3.hash32(data, data.length, seed);
       assertEquals(hc1, hc2);
     }
   }
@@ -101,7 +100,7 @@ public class TestMurmur3 {
     buf.flip();
     long gl1 = buf.getLong();
     long gl2 = buf.getLong(8);
-    long[] hc = Murmur3_128.hash(key.getBytes(), key.getBytes().length, seed);
+    long[] hc = Murmur3.hash128(key.getBytes(), key.getBytes().length, seed);
     long m1 = hc[0];
     long m2 = hc[1];
     assertEquals(gl1, m1);
@@ -113,7 +112,7 @@ public class TestMurmur3 {
     buf.flip();
     gl1 = buf.getLong();
     gl2 = buf.getLong(8);
-    hc = Murmur3_128.hash(key.getBytes(), key.getBytes().length, seed);
+    hc = Murmur3.hash128(key.getBytes(), key.getBytes().length, seed);
     m1 = hc[0];
     m2 = hc[1];
     assertEquals(gl1, m1);
@@ -134,7 +133,7 @@ public class TestMurmur3 {
       buf.flip();
       long gl1 = buf.getLong();
       long gl2 = buf.getLong(8);
-      long[] hc = Murmur3_128.hash(data, data.length, seed);
+      long[] hc = Murmur3.hash128(data, data.length, seed);
       long m1 = hc[0];
       long m2 = hc[1];
       assertEquals(gl1, m1);
@@ -156,7 +155,7 @@ public class TestMurmur3 {
       buf.flip();
       long gl1 = buf.getLong();
       long gl2 = buf.getLong(8);
-      long[] hc = Murmur3_128.hash(data, data.length, seed);
+      long[] hc = Murmur3.hash128(data, data.length, seed);
       long m1 = hc[0];
       long m2 = hc[1];
       assertEquals(gl1, m1);
@@ -178,7 +177,7 @@ public class TestMurmur3 {
       buf.flip();
       long gl1 = buf.getLong();
       long gl2 = buf.getLong(8);
-      long[] hc = Murmur3_128.hash(data, data.length, seed);
+      long[] hc = Murmur3.hash128(data, data.length, seed);
       long m1 = hc[0];
       long m2 = hc[1];
       assertEquals(gl1, m1);
