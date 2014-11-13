@@ -90,7 +90,6 @@ public class TestMurmur3 {
     }
   }
 
-
   @Test
   public void testHashCodesM3_128_string() {
     String key = "test";

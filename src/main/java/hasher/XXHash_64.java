@@ -186,7 +186,7 @@ public class XXHash_64 {
   }
 
   private static long updateTail(long hash, int value) {
-    long unsigned = value & 0xFFFF_FFFFL;
+    long unsigned = value & 0xFFFFFFFFL;
     long temp = hash ^ (unsigned * PRIME64_1);
     return Long.rotateLeft(temp, 23) * PRIME64_2 + PRIME64_3;
   }
