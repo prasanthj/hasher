@@ -20,7 +20,7 @@ package hasher;
  * This implementation is adapted from
  * https://github.com/airlift/slice/blob/master/src/main/java/io/airlift/slice/XxHash64.java
  */
-public class XXHash_64 {
+public class XXHash {
   private final static long PRIME64_1 = 0x9E3779B185EBCA87L;
   private final static long PRIME64_2 = 0xC2B2AE3D27D4EB4FL;
   private final static long PRIME64_3 = 0x165667B19E3779F9L;
@@ -34,8 +34,8 @@ public class XXHash_64 {
    * @param data - input byte array
    * @return - hashcode
    */
-  public static long hash(byte[] data) {
-    return hash(data, data.length, DEFAULT_SEED);
+  public static long hash64(byte[] data) {
+    return hash64(data, data.length, DEFAULT_SEED);
   }
 
   /**
@@ -46,7 +46,7 @@ public class XXHash_64 {
    * @param seed   - seed. (default 0)
    * @return - hashcode
    */
-  public static long hash(byte[] data, int length, long seed) {
+  public static long hash64(byte[] data, int length, long seed) {
     long hash;
     int index = 0;
     if (length >= 32) {

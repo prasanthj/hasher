@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import static hasher.XXHash_64.hash;
+import static hasher.XXHash.hash64;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
@@ -42,29 +42,29 @@ public class TestXXHash {
   public void testSanity()
       throws Exception
   {
-    assertEquals(hash(buffer, 1, 0), 0x4FCE394CC88952D8L);
-    assertEquals(hash(buffer, 1, PRIME), 0x739840CB819FA723L);
+    assertEquals(hash64(buffer, 1, 0), 0x4FCE394CC88952D8L);
+    assertEquals(hash64(buffer, 1, PRIME), 0x739840CB819FA723L);
 
-    assertEquals(hash(buffer, 4, 0), 0x9256E58AA397AEF1L);
-    assertEquals(hash(buffer, 4, PRIME), 0x9D5FFDFB928AB4BL);
+    assertEquals(hash64(buffer, 4, 0), 0x9256E58AA397AEF1L);
+    assertEquals(hash64(buffer, 4, PRIME), 0x9D5FFDFB928AB4BL);
 
-    assertEquals(hash(buffer, 8, 0), 0xF74CB1451B32B8CFL);
-    assertEquals(hash(buffer, 8, PRIME), 0x9C44B77FBCC302C5L);
+    assertEquals(hash64(buffer, 8, 0), 0xF74CB1451B32B8CFL);
+    assertEquals(hash64(buffer, 8, PRIME), 0x9C44B77FBCC302C5L);
 
-    assertEquals(hash(buffer, 14, 0), 0xCFFA8DB881BC3A3DL);
-    assertEquals(hash(buffer, 14, PRIME), 0x5B9611585EFCC9CBL);
+    assertEquals(hash64(buffer, 14, 0), 0xCFFA8DB881BC3A3DL);
+    assertEquals(hash64(buffer, 14, PRIME), 0x5B9611585EFCC9CBL);
 
-    assertEquals(hash(buffer, 32, 0), 0xAF5753D39159EDEEL);
-    assertEquals(hash(buffer, 32, PRIME), 0xDCAB9233B8CA7B0FL);
+    assertEquals(hash64(buffer, 32, 0), 0xAF5753D39159EDEEL);
+    assertEquals(hash64(buffer, 32, PRIME), 0xDCAB9233B8CA7B0FL);
 
-    assertEquals(hash(buffer, buffer.length, 0), 0x0EAB543384F878ADL);
-    assertEquals(hash(buffer, buffer.length, PRIME), 0xCAA65939306F1E21L);
+    assertEquals(hash64(buffer, buffer.length, 0), 0x0EAB543384F878ADL);
+    assertEquals(hash64(buffer, buffer.length, PRIME), 0xCAA65939306F1E21L);
   }
 
   @Test
   public void testEmpty()
       throws Exception
   {
-    assertEquals(hash(new byte[]{}, 0, 0), 0xEF46DB3751D8E999L);
+    assertEquals(hash64(new byte[]{}, 0, 0), 0xEF46DB3751D8E999L);
   }
 }

@@ -43,7 +43,7 @@ public class FNV1 {
    * @param length - length of array
    * @return - hashcode
    */
-  private static int hash32(byte[] data, int length) {
+  public static int hash32(byte[] data, int length) {
     int hash = FNV1_32_INIT;
     for (int i = 0; i < length; i++) {
       hash *= FNV1_PRIME_32;
@@ -70,7 +70,7 @@ public class FNV1 {
    * @param length - length of array
    * @return - hashcode
    */
-  private static long hash64(byte[] data, int length) {
+  public static long hash64(byte[] data, int length) {
     long hash = FNV1_64_INIT;
     for (int i = 0; i < length; i++) {
       hash *= FNV1_PRIME_64;

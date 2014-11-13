@@ -25,8 +25,8 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Random;
 
+import hasher.Murmur3;
 import hasher.Murmur3_128;
-import hasher.Murmur3_32;
 
 /**
  * Tests for Murmur3 variants.
@@ -39,12 +39,12 @@ public class TestMurmur3 {
     int seed = 123;
     HashFunction hf = Hashing.murmur3_32(seed);
     int hc1 = hf.hashBytes(key.getBytes()).asInt();
-    int hc2 = Murmur3_32.hash(key.getBytes(), key.getBytes().length, seed);
+    int hc2 = Murmur3.hash(key.getBytes(), key.getBytes().length, seed);
     assertEquals(hc1, hc2);
 
     key = "testkey";
     hc1 = hf.hashBytes(key.getBytes()).asInt();
-    hc2 = Murmur3_32.hash(key.getBytes(), key.getBytes().length, seed);
+    hc2 = Murmur3.hash(key.getBytes(), key.getBytes().length, seed);
     assertEquals(hc1, hc2);
   }
 
@@ -57,7 +57,7 @@ public class TestMurmur3 {
       int val = rand.nextInt();
       byte[] data = ByteBuffer.allocate(4).putInt(val).array();
       int hc1 = hf.hashBytes(data).asInt();
-      int hc2 = Murmur3_32.hash(data, data.length, seed);
+      int hc2 = Murmur3.hash(data, data.length, seed);
       assertEquals(hc1, hc2);
     }
   }
@@ -71,7 +71,7 @@ public class TestMurmur3 {
       long val = rand.nextLong();
       byte[] data = ByteBuffer.allocate(8).putLong(val).array();
       int hc1 = hf.hashBytes(data).asInt();
-      int hc2 = Murmur3_32.hash(data, data.length, seed);
+      int hc2 = Murmur3.hash(data, data.length, seed);
       assertEquals(hc1, hc2);
     }
   }
@@ -85,7 +85,7 @@ public class TestMurmur3 {
       double val = rand.nextDouble();
       byte[] data = ByteBuffer.allocate(8).putDouble(val).array();
       int hc1 = hf.hashBytes(data).asInt();
-      int hc2 = Murmur3_32.hash(data, data.length, seed);
+      int hc2 = Murmur3.hash(data, data.length, seed);
       assertEquals(hc1, hc2);
     }
   }

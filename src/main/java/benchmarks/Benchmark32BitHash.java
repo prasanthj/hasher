@@ -15,7 +15,6 @@
  */
 package benchmarks;
 
-import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
 
 import org.openjdk.jmh.annotations.Benchmark;
@@ -25,14 +24,21 @@ import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
-import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
+import java.security.DigestException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.TimeUnit;
 
+import de.greenrobot.common.hash.Murmur3A;
+import hasher.FNV1;
+import hasher.FNV1a;
+import hasher.Murmur2;
+import hasher.Murmur3;
 
 /**
  *
@@ -42,18 +48,55 @@ import java.util.concurrent.TimeUnit;
 @Fork(3)
 @Warmup(iterations = 10, time = 500, timeUnit = TimeUnit.MILLISECONDS)
 @Measurement(iterations = 10, time = 500, timeUnit = TimeUnit.MILLISECONDS)
-public class BenchmarkGuavaMurmur3_128 {
+public class Benchmark32BitHash {
 
   @Benchmark
-  public void guava_murmur3_128(Blackhole bh, BenchmarkData bd, ByteCounter bc) {
+  public int murmur2_32(BenchmarkData bd, ByteCounter bc) {
     byte[] bytes = bd.getBytes();
     bc.add(bytes.length);
-    bh.consume(Hashing.murmur3_128().hashBytes(bytes).asBytes());
+    return Murmur2.hash32(bytes, bytes.length, 0);
+  }
+
+  @Benchmark
+  public int guava_murmur3_32(BenchmarkData bd, ByteCounter bc) {
+    byte[] bytes = bd.getBytes();
+    bc.add(bytes.length);
+    return Hashing.murmur3_32().hashBytes(bytes).asInt();
+  }
+
+  @Benchmark
+  public int greenrobot_murmur3a_32(BenchmarkData bd, ByteCounter bc) {
+    byte[] bytes = bd.getBytes();
+    bc.add(bytes.length);
+    Murmur3A hf = new Murmur3A();
+    hf.update(bytes);
+    return (int) hf.getValue();
+  }
+
+  @Benchmark
+  public int murmur3_32(BenchmarkData bd, ByteCounter bc) {
+    byte[] bytes = bd.getBytes();
+    bc.add(bytes.length);
+    return Murmur3.hash32(bytes, bytes.length, 0);
+  }
+
+  @Benchmark
+  public int fnv1_32(BenchmarkData bd, ByteCounter bc) {
+    byte[] bytes = bd.getBytes();
+    bc.add(bytes.length);
+    return FNV1.hash32(bytes, bytes.length);
+  }
+
+  @Benchmark
+  public int fnv1a_32(BenchmarkData bd, ByteCounter bc) {
+    byte[] bytes = bd.getBytes();
+    bc.add(bytes.length);
+    return FNV1a.hash32(bytes, bytes.length);
   }
 
   public static void main(String[] args) throws RunnerException {
     Options options = new OptionsBuilder()
-        .include(BenchmarkGuavaMurmur3_128.class.getSimpleName())
+        .include(Benchmark32BitHash.class.getSimpleName())
         .forks(1)
         .build();
 
