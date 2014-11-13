@@ -31,6 +31,7 @@ To run a specific benchmark
 _NOTE:_ Its always good to run the benchmarks on your local machine as YMMV.
 
 Latest results can be found [here]. All results are generated with the following setup.
+
 **Benchmark Setup**
 
 - _Java version:_ 1.7.0_40 (64-Bit Server VM)
