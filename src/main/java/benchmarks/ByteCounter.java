@@ -22,7 +22,8 @@ import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 
 /**
- * To print throughput in MB/s
+ * To print throughput in MB/s.
+ * Refer jmh-samples/src/main/java/org/openjdk/jmh/samples/JMHSample_23_AuxCounters.java
  */
 @AuxCounters
 @State(Scope.Thread)
