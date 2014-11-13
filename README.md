@@ -21,7 +21,7 @@ To run all benchmarks
 
 > java -jar target/benchmarks.jar
 
-(OR) with customer iterations (wi - warmup iterations, i - iterations, f - fork)
+(OR) with custom iterations (wi - warmup iterations, i - iterations, f - fork)
 > java -jar target/benchmarks.jar -wi 5 -i 10 -f 1
 
 To run a specific benchmark
