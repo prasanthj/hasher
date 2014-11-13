@@ -1,0 +1,42 @@
+COMMAND: java -jar target/benchmarks.jar -wi 5 -i 10 -f 1 -p size=555
+COMMIT: 17a16a3fa221d9970cad5f3564336f61cc1eb32d 
+
+Benchmark                                                  (size)   Mode  Samples        Score        Error  Units
+b.Benchmark128BitHash.greenrobot_murmur3f_128                 555  thrpt       10  4489228.880 ± 182817.003  ops/s
+b.Benchmark128BitHash.greenrobot_murmur3f_128:megabytes       555  thrpt       10     2375.310 ±     96.717  ops/s
+b.Benchmark128BitHash.guava_murmur3_128                       555  thrpt       10  1532898.594 ±  38567.161  ops/s
+b.Benchmark128BitHash.guava_murmur3_128:megabytes             555  thrpt       10      810.905 ±     20.767  ops/s
+b.Benchmark128BitHash.md5                                     555  thrpt       10   589381.918 ±  19521.421  ops/s
+b.Benchmark128BitHash.md5:megabytes                           555  thrpt       10      311.440 ±     10.236  ops/s
+b.Benchmark128BitHash.murmur3_128                             555  thrpt       10  3019593.676 ±  72354.225  ops/s
+b.Benchmark128BitHash.murmur3_128:megabytes                   555  thrpt       10     1597.489 ±     37.967  ops/s
+b.Benchmark128BitHash.sha                                     555  thrpt       10   381448.429 ±  13157.250  ops/s
+b.Benchmark128BitHash.sha:megabytes                           555  thrpt       10      201.114 ±      6.737  ops/s
+b.Benchmark32BitHash.fnv1_32                                  555  thrpt       10  1539552.106 ±  35392.846  ops/s
+b.Benchmark32BitHash.fnv1_32:megabytes                        555  thrpt       10      813.734 ±     18.883  ops/s
+b.Benchmark32BitHash.fnv1a_32                                 555  thrpt       10  1539461.190 ±  54082.322  ops/s
+b.Benchmark32BitHash.fnv1a_32:megabytes                       555  thrpt       10      814.164 ±     28.631  ops/s
+b.Benchmark32BitHash.greenrobot_murmur3a_32                   555  thrpt       10  3923527.925 ± 157510.881  ops/s
+b.Benchmark32BitHash.greenrobot_murmur3a_32:megabytes         555  thrpt       10     2075.600 ±     83.533  ops/s
+b.Benchmark32BitHash.guava_murmur3_32                         555  thrpt       10  1037852.844 ±  34209.595  ops/s
+b.Benchmark32BitHash.guava_murmur3_32:megabytes               555  thrpt       10      548.614 ±     17.962  ops/s
+b.Benchmark32BitHash.murmur2_32                               555  thrpt       10  2501354.743 ±  79614.687  ops/s
+b.Benchmark32BitHash.murmur2_32:megabytes                     555  thrpt       10     1323.101 ±     42.094  ops/s
+b.Benchmark32BitHash.murmur3_32                               555  thrpt       10  2619905.360 ± 112694.721  ops/s
+b.Benchmark32BitHash.murmur3_32:megabytes                     555  thrpt       10     1386.094 ±     59.233  ops/s
+b.Benchmark64BitHash.fnv1_64                                  555  thrpt       10  1560569.084 ±  35601.466  ops/s
+b.Benchmark64BitHash.fnv1_64:megabytes                        555  thrpt       10      825.261 ±     18.923  ops/s
+b.Benchmark64BitHash.fnv1a_64                                 555  thrpt       10  1565503.456 ±  31312.269  ops/s
+b.Benchmark64BitHash.fnv1a_64:megabytes                       555  thrpt       10      827.843 ±     16.246  ops/s
+b.Benchmark64BitHash.greenrobot_murmur3f_64                   555  thrpt       10  4627622.957 ± 169930.531  ops/s
+b.Benchmark64BitHash.greenrobot_murmur3f_64:megabytes         555  thrpt       10     2448.590 ±     90.170  ops/s
+b.Benchmark64BitHash.guava_murmur3_64                         555  thrpt       10  1562555.783 ±  48302.446  ops/s
+b.Benchmark64BitHash.guava_murmur3_64:megabytes               555  thrpt       10      826.159 ±     25.767  ops/s
+b.Benchmark64BitHash.murmur2_64                               555  thrpt       10  3318770.601 ±  96466.993  ops/s
+b.Benchmark64BitHash.murmur2_64:megabytes                     555  thrpt       10     1755.549 ±     51.282  ops/s
+b.Benchmark64BitHash.murmur3_64                               555  thrpt       10  2998091.043 ±  85875.776  ops/s
+b.Benchmark64BitHash.murmur3_64:megabytes                     555  thrpt       10     1585.950 ±     45.035  ops/s
+b.Benchmark64BitHash.xxhash_64                                555  thrpt       10  2854259.121 ±  50123.560  ops/s
+b.Benchmark64BitHash.xxhash_64:megabytes                      555  thrpt       10     1509.883 ±     26.938  ops/s
+
+==================================================================================================================
