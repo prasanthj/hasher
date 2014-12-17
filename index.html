@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Hasher by prasanthj</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Hasher</h1>
+        <h2>Java implementation of Murmur2, Murmur3, XXHash, FNV1 and FNV1A.</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/prasanthj/hasher/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/prasanthj/hasher/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/prasanthj/hasher" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="hasher" class="anchor" href="#hasher" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hasher</h1>
+
+<p>This project contains Java implementation for the following fast non-cryptographic hash algorithms</p>
+
+<ul>
+<li>
+<a href="https://github.com/prasanthj/hasher/blob/master/src/main/java/hasher/Murmur2.java">Murmur2</a> - 32, 64-bit variants</li>
+<li>
+<a href="https://github.com/prasanthj/hasher/blob/master/src/main/java/hasher/Murmur3.java">Murmur3</a> - 32, 64, 128-bit variants</li>
+<li>
+<a href="https://github.com/prasanthj/hasher/blob/master/src/main/java/hasher/XXHash.java">XXHash</a> - 64-bit variant</li>
+<li>
+<a href="https://github.com/prasanthj/hasher/blob/master/src/main/java/hasher/FNV1.java">FNV1</a> - 32, 64-bit variants</li>
+<li>
+<a href="https://github.com/prasanthj/hasher/blob/master/src/main/java/hasher/FNV1a.java">FNV1A</a> - 32, 64-bit variants</li>
+</ul>
+
+<h2>
+<a id="jmh-microbenchmark" class="anchor" href="#jmh-microbenchmark" aria-hidden="true"><span class="octicon octicon-link"></span></a>JMH Microbenchmark</h2>
+
+<h3>
+<a id="running-locally" class="anchor" href="#running-locally" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running locally</h3>
+
+<p>To run the benchmark on your local machine</p>
+
+<blockquote>
+<p>git clone <a href="https://github.com/prasanthj/hasher.git">https://github.com/prasanthj/hasher.git</a></p>
+
+<p>cd hasher</p>
+
+<p>mvn clean install</p>
+</blockquote>
+
+<p>To run all benchmarks</p>
+
+<blockquote>
+<p>java -jar target/benchmarks.jar</p>
+</blockquote>
+
+<p>(OR) with custom iterations (wi - warmup iterations, i - iterations, f - fork)</p>
+
+<blockquote>
+<p>java -jar target/benchmarks.jar -wi 5 -i 10 -f 1</p>
+</blockquote>
+
+<p>To run a specific benchmark</p>
+
+<blockquote>
+<p>java -jar target/benchmarks.jar Benchmark32BitHash -wi 5 -i 10 -f 1</p>
+</blockquote>
+
+<h3>
+<a id="results" class="anchor" href="#results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h3>
+
+<p><em>NOTE:</em> Its always good to run the benchmarks on your local machine as YMMV.</p>
+
+<p>Latest results can be found <a href="https://github.com/prasanthj/hasher/blob/master/src/main/java/benchmarks/results">here</a>. All results are generated with the following setup.</p>
+
+<p><strong>Benchmark Setup</strong></p>
+
+<ul>
+<li>
+<em>Java version:</em> 1.7.0_40 (64-Bit Server VM)</li>
+<li>
+<em>Operating system:</em> Mac OS X v10.10 (Yosemite)</li>
+<li>
+<em>Processor:</em> 2.7 GHz Intel Core i7</li>
+<li>
+<em>Memory:</em> 16GB 1600 MHz DDR3</li>
+<li>
+<em>Storage:</em> 500GB Flash Storage</li>
+</ul>
+
+<h2>
+<a id="issues" class="anchor" href="#issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issues</h2>
+
+<p>Bug fixes or improvements are welcome! Please fork the project and send pull request on github. Or report issues here <a href="https://github.com/prasanthj/hasher/issues">https://github.com/prasanthj/hasher/issues</a></p>
+      </section>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-23400095-3");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
