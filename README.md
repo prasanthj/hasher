@@ -1,4 +1,4 @@
-Hasher
+Hasher ![Build Status](https://circleci.com/gh/prasanthj/hasher.png?circle-token=eaa12cece015c20ad9c5f9d0764e26338a4cb88a) 
 ======
 
 This project contains Java implementation for the following fast non-cryptographic hash algorithms
