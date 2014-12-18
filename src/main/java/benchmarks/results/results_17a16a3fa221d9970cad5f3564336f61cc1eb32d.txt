@@ -38,5 +38,3 @@ b.Benchmark64BitHash.murmur3_64                               555  thrpt       1
 b.Benchmark64BitHash.murmur3_64:megabytes                     555  thrpt       10     1585.950 ±     45.035  ops/s
 b.Benchmark64BitHash.xxhash_64                                555  thrpt       10  2854259.121 ±  50123.560  ops/s
 b.Benchmark64BitHash.xxhash_64:megabytes                      555  thrpt       10     1509.883 ±     26.938  ops/s
-
-==================================================================================================================
