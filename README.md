@@ -40,6 +40,8 @@ Latest results can be found [here]. All results are generated with the following
 - _Memory:_ 16GB 1600 MHz DDR3
 - _Storage:_ 500GB Flash Storage
 
+![Results](https://github.com/prasanthj/hasher/blob/master/src/main/java/benchmarks/results/64-bit-result.png)
+
 ## Issues
 Bug fixes or improvements are welcome! Please fork the project and send pull request on github. Or report issues here https://github.com/prasanthj/hasher/issues
 
